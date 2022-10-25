@@ -1,8 +1,7 @@
 package org.spring.context.core.BeanFactory.Impl;
 
-import org.spring.context.core.BeanFactory.BeanFactory;
 import org.spring.context.core.BeanFactory.ConfigurableListableBeanFactory;
-import org.spring.context.core.Registry.BeanDefinition;
+import org.spring.context.core.Registry.BeanDefinition.BeanDefinition;
 import org.spring.context.core.Registry.BeanRegistry;
 
 import java.util.HashMap;
@@ -34,5 +33,10 @@ public class DefaultListableBeanFactory implements ConfigurableListableBeanFacto
     @Override
     public BeanDefinition getBeanDefinition(String name) {
         return null;
+    }
+
+    @Override
+    public void registerBeanDefintion(String name, Class<?> clazz) {
+
     }
 }

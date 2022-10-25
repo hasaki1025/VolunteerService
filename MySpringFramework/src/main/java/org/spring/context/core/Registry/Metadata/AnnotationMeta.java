@@ -13,12 +13,12 @@ public  class AnnotationMeta {
         return annotationSet;
     }
 
-    public Annotation getAnnotationByType(Class<? extends Annotation> type)
+    public<T> T getAnnotationByType(Class<T> type)
     {
         for (Annotation annotation : annotationSet) {
             if (type!=null && type.isAssignableFrom(annotation.getClass()))
             {
-                return annotation;
+                return (T)annotation;
             }
         }
         return null;
