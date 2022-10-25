@@ -3,6 +3,7 @@ package org.spring.context.core.Registry.Metadata;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.spring.context.Annotation.Bean;
 import org.spring.context.Annotation.Scope;
 import org.spring.context.Annotation.ScopeName;
 import org.spring.context.core.Factory.FactoryBean;
@@ -17,6 +18,7 @@ import java.util.Map;
 import java.util.Set;
 @Setter
 @Getter
+@ToString
 public class ClassAnnotationMeta extends AnnotationMeta{
     private final Map<String,MethodAnnotationMeta> methodAnnotationMetaMap=new HashMap<>();
     private final Map<String,FieldAnnotationMeta> fieldAnnotationMetaMap=new HashMap<>();
@@ -28,6 +30,8 @@ public class ClassAnnotationMeta extends AnnotationMeta{
     public boolean isSingle;
 
     public MethodAnnotationMeta factoryBeanMethod;
+
+    public Set<MethodAnnotationMeta> beanMethods=new HashSet<>();
 
 
     public ClassAnnotationMeta(Class<?> source) {
@@ -42,9 +46,12 @@ public class ClassAnnotationMeta extends AnnotationMeta{
         }
         for (Method method : source.getDeclaredMethods()) {
             MethodAnnotationMeta meta = new MethodAnnotationMeta(method);
-            if (isFactoryBean && method.getName().equals("getObject"))
+            if (isFactoryBean && "getObject".equals(method.getName()))
             {
                 factoryBeanMethod=meta;
+            }
+            else if(meta.isPresent(Bean.class)){
+                beanMethods.add(meta);
             }
             methodAnnotationMetaMap.put(method.getName(),meta);
         }
@@ -68,4 +75,7 @@ public class ClassAnnotationMeta extends AnnotationMeta{
 
 
     }
+
+
+
 }

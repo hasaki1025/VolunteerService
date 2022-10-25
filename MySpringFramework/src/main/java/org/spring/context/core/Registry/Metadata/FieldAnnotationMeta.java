@@ -2,6 +2,7 @@ package org.spring.context.core.Registry.Metadata;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.spring.context.Annotation.Autowire;
 
 import javax.xml.transform.Source;
@@ -16,6 +17,7 @@ import java.util.function.Predicate;
 
 @Setter
 @Getter
+@ToString
 public class FieldAnnotationMeta extends AnnotationMeta{
 
     String name;
