@@ -1,33 +1,36 @@
 package org.spring.context.core.BeanFactory.Impl;
 
-import org.spring.context.Annotation.Component;
-import org.spring.context.Annotation.Configuration;
 import org.spring.context.core.BeanFactory.ConfigurableListableBeanFactory;
 import org.spring.context.core.Registry.Definition.AnnotatedBeanDefintion;
 import org.spring.context.core.Registry.Definition.BeanDefinition;
-import org.spring.context.core.Registry.BeanRegistry;
-import org.spring.context.core.Registry.Metadata.ClassAnnotationMeta;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class DefaultListableBeanFactory implements ConfigurableListableBeanFactory {
-    private final Map<String, Object> beanInstanceMap = new HashMap<>();
-    private final Map<Class<?>, Object[]> beanInstanceClassMap = new HashMap<>();
+    private final Map<String, Object> beanInstanceMap = new HashMap<>();//todo
+    private final Map<Class<?>, Object[]> beanInstanceClassMap = new HashMap<>();//todo
     public final Set<BeanDefinition> beanDefinitionSet = new HashSet<>();
 
     private final Map<String,BeanDefinition> beanDefinitionMap=new HashMap<>();
     private final Set<Class<?>> beanDefinitionClass=new HashSet<>();
     private final Map<String,BeanDefinition> configurationBeanDefinitionMap=new HashMap<>();
 
+    private final Map<Class<?>, BeanDefinition> beanFactoryPostProcessorBeanDefiniton=new HashMap<>();
 
 
+    public BeanDefinition getBeanFactoryProcessorBeanDefiniton(Class<?> clazz)
+    {
+        return beanFactoryPostProcessorBeanDefiniton.get(clazz);
+    }
+
+    public BeanDefinition[] getAllBeanFactoryProcessorBeanDefiniton()
+    {
+        return beanFactoryPostProcessorBeanDefiniton.values().toArray(new BeanDefinition[0]);
+    }
 
     @Override
-    public <T> T[] getBean(Class<T> beanClass) {
-        return (T[]) beanInstanceClassMap.get(beanClass);
+    public  Object[] getBean(Class<?> beanClass) {
+        return  beanInstanceClassMap.get(beanClass);
     }
 
     @Override
@@ -67,10 +70,12 @@ public class DefaultListableBeanFactory implements ConfigurableListableBeanFacto
     public boolean isBeanNameInUse(String beanName) {
         return beanDefinitionMap.get(beanName)!=null;
     }
-
-    void registerAnnotationConfigProcessors()//TODO
+    @Override
+    public void registerAnnotationConfigProcessor(String name ,Class<?> clazz)//TODO
     {
-
+        AnnotatedBeanDefintion beanDefintion = new AnnotatedBeanDefintion(name, clazz);
+        registerBeanDefintion(beanDefintion);
+        beanFactoryPostProcessorBeanDefiniton.put(beanDefintion.getBeanClass(),beanDefintion);
     }
 
     @Override

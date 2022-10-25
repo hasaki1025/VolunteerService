@@ -6,7 +6,7 @@ import org.spring.context.core.Registry.Definition.BeanDefinition;
 
 public class BeanDefinitionReader {
 
-    BeanRegistry registry;
+    AnnotationConfigRegistry registry;
 
     private final String[] BEAN_FACTORY_POST_PROCESSOR =new String[]{"org.spring.context.core.BeanPostProcessor.ConfigurationBeanFactoryPostProcessor"};//TODO
 
@@ -25,7 +25,7 @@ public class BeanDefinitionReader {
         }
     }
 
-    public BeanDefinitionReader(BeanRegistry registry) {
+    public BeanDefinitionReader(AnnotationConfigRegistry registry) {
         if(registry instanceof ConfigurableApplicationContext)
         {
             this.registry = ((ConfigurableApplicationContext)registry).getBeanFactory();
@@ -40,7 +40,7 @@ public class BeanDefinitionReader {
         for (String s : BEAN_FACTORY_POST_PROCESSOR) {
             try {
                 Class<?> clazz = Class.forName(s);
-                registerAnnotationConfigProcessors();
+                registry.registerAnnotationConfigProcessor(clazz.getSimpleName(),clazz);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
