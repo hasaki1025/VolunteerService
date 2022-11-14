@@ -7,6 +7,8 @@ public interface BeanRegistry {
 
     public BeanDefinition getBeanDefinition(String name);
 
+    public BeanDefinition getBeanDefintionByClass(Class<?> clazz);
+
     public void registerBeanDefintion(BeanDefinition beanDefinition);
 
     boolean isBeanNameInUse(String beanName);

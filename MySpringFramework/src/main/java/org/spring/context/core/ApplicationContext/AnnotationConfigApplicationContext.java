@@ -53,14 +53,15 @@ public class AnnotationConfigApplicationContext implements ConfigurableApplicati
         return beanFactory;
     }
 
-    @Override
-    public  Object[] getBean(Class<?> beanClass) {
-        return beanFactory.getBean(beanClass);
-    }
 
     @Override
     public Object getBean(String name) {
         return beanFactory.getBean(name);
+    }
+
+    @Override
+    public <T> T getBean(Class<T> beanClass) {
+        return beanFactory.getBean(beanClass);
     }
 
     @Override
