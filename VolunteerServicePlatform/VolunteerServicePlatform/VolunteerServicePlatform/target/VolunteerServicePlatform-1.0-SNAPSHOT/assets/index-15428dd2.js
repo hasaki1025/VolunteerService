@@ -1,0 +1,1 @@
+const r=e=>{const o=document.cookie.split("; ").map(t=>t.split("="));return new Map(o).get(e)||null},s=(e,o,n=2)=>{const t=new Date;t.setDate(t.getDate()+n),document.cookie=`${e}=${o};expires=${t}`},c=e=>{s(e,"",-1)},a=e=>`${e.getFullYear()}年${e.getMonth()+1}月${e.getDay()}日 ${e.getHours()}时${e.getMinutes()}分`;export{a as c,r as g,c as r,s};

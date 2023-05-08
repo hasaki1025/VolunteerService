@@ -1,0 +1,1 @@
+import{b as o}from "./index-abc4dcdb.js";const m=()=>o({url:"/common/activities",method:"get"}),s=(t, e)=>o({url:"/common/activities",method:"post",data:{id:t,service_time:e}}),c= t=>o({method:"get",url:"/common/activities/comment",params:{cId:t}}),n=(t, e)=>o({method:"post",url:"/common/activities/comment",data:{cId:t,content:e}});export{c as a,m as g,s as j,n as s};

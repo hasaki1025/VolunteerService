@@ -1,0 +1,1 @@
+import{d as s}from "./pinia-251ef24e.js";import{b as r}from "./index-fe68f829.js";const n=s("news",()=>{const e=r();return{waitEditNew:e,setWaitEditNew: t=>{e.value=t}}},{persist:{enabled:!0,strategies:[{key:"new-change",storage:sessionStorage}]}});export{n as u};

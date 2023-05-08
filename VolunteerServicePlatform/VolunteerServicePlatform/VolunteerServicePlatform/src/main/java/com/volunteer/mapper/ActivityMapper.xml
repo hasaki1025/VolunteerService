@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.ActivityMapper">
+
+<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+<!--    <resultMap id="BaseResultMap" type="com.volunteer.pojo.po.Activity">-->
+<!--        <id column="activity_code" property="activityCode" />-->
+<!--        <result column="activity_type_id" property="activityTypeId" />-->
+<!--        <result column="activity_name" property="activityName" />-->
+<!--        <result column="activity_img" property="activityImg" />-->
+<!--        <result column="activity_time" property="activityTime" />-->
+<!--        <result column="activity_count_all" property="activityCountAll" />-->
+<!--        <result column="introduce" property="introduce" />-->
+<!--        <result column="contact" property="contact" />-->
+<!--        <result column="contact_telephone" property="contactTelephone" />-->
+<!--        <result column="last_click_time" property="lastClickTime" />-->
+<!--        <result column="click_count" property="clickCount" />-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash; 通用查询映射结果 &ndash;&gt;-->
+<!--    <resultMap id="ActivityBo" type="com.volunteer.pojo.bo.ActivityBo">-->
+<!--        <id column="activity_id" property="activityId" />-->
+<!--        <result column="activity_code" property="activityCode" />-->
+<!--        <result column="activity_type_name" property="type" />-->
+<!--        <result column="activity_name" property="activityName" />-->
+<!--        <result column="activity_img" property="activityImg" />-->
+<!--        <result column="activity_time" property="activityTime" />-->
+<!--        <result column="activity_count_all" property="activityCountAll" />-->
+<!--        <result column="activity_count_rest" property="activityCountRest" />-->
+<!--        <result column="introduce" property="introduce" />-->
+<!--        <result column="contact" property="contact" />-->
+<!--        <result column="contact_telephone" property="contactTelephone" />-->
+<!--        <result column="last_click_time" property="lastClickTime" />-->
+<!--        <result column="click_count" property="clickCount" />-->
+<!--    </resultMap>-->
+
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        activitty_code, activity_type_id, activity_name, activity_img, activity_time, activity_count_all, introduce, contact, contact_telephone, last_click_time, click_count-->
+<!--    </sql>-->
+
+<!--    <select id="getAllActivities" resultType="ActivityBo">-->
+<!--        SELECT-->
+<!--            a.`activity_code`,-->
+<!--            b.activity_type_name,-->
+<!--            a.`activity_name`,-->
+<!--            a.`activity_img`,-->
+<!--            a.`activity_time`,-->
+<!--            a.`activity_count_all`,-->
+<!--            a.`introduce`,-->
+<!--            a.`contact`,-->
+<!--            a.`contact_telephone`,-->
+<!--            a.`last_click_time`,-->
+<!--            a.`click_count`,-->
+<!--            a.`activity_id`,-->
+<!--            a.`activity_count_rest`-->
+<!--        FROM-->
+<!--            `volunteer_system`.`activity` a,activity_type b-->
+<!--        WHERE-->
+<!--            a.activity_type_id = b.activity_type_id-->
+<!--    </select>-->
+
+    <update id="clickActivity" parameterType="int">
+        UPDATE
+            activity
+        SET
+            click_count = click_count + 1,
+            last_click_time = CURRENT_TIMESTAMP
+        WHERE
+            activity_id = #{cid}
+    </update>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.AdminsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.volunteer.pojo.po.Admins">
+        <id column="admin_id" property="adminId" />
+        <result column="admin_name" property="adminName" />
+        <result column="admin_password" property="adminPassword" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        admin_id, admin_name, admin_password
+    </sql>
+
+    <select id="select" resultType="com.volunteer.pojo.po.Admins">
+        SELECT
+            `admin_id` AS "adminId",
+            `admin_name` AS "adminName",
+            `admin_password` AS "adminPassword"
+        FROM
+            `volunteer_system`.`admins`
+        WHERE
+            admin_name = #{username}
+        AND
+            admin_password = #{password}
+    </select>
+
+</mapper>

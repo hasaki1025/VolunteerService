@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.UsersMapper">
+
+    <insert id="insert" parameterType="com.volunteer.pojo.dto.UserRegister">
+        insert into `volunteer_system`.`users` (
+            `password`,
+            `username`,
+            `sex`,
+            `telephone`,
+            `email`,
+            `name`
+        )
+        values
+            (
+                #{password},
+                #{username},
+                #{sex},
+                #{telephone},
+                #{email},
+                #{name}
+            ) ;
+    </insert>
+
+    <select id="selectId" resultType="int">
+        select user_id from users
+                       where username = #{username}
+                         and password = #{password}
+    </select>
+
+    <select id="selectUser" resultType="com.volunteer.pojo.po.Users">
+        SELECT
+            `user_id` as "userId",
+            `password` as "password",
+            `username` as "username",
+            `identity_num` as "identityNum",
+            `image` as "image",
+            `server_time` as "serverTime",
+            `sex` as "sex",
+            `telephone` as "telephone",
+            `email` as "email",
+            `name` as "name"
+        FROM
+            `volunteer_system`.`users`
+        WHERE
+            username = #{username}
+          AND
+            PASSWORD = #{password}
+    </select>
+
+    <select id="selectIdByUsername" resultType="int">
+        SELECT
+            user_id
+        FROM
+            users
+        WHERE
+            username = #{username}
+    </select>
+
+</mapper>

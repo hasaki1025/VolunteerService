@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent" android:layout_height="fill_parent"
+              android:orientation="vertical">
+    <RadioButton
+            android:layout_width="122dp"
+            android:layout_height="wrap_content" android:id="@+id/manButton" tools:text="男"/>
+    <RadioButton
+            android:layout_width="124dp"
+            android:layout_height="wrap_content" android:id="@+id/womanButton" tools:text="女"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox2"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox3"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox4"/>
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox5"/>
+    <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="97dp"
+            android:background="?android:attr/listDivider"
+    />
+    <CheckBox
+            android:text="CheckBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/checkBox6"/>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+    />
+</LinearLayout>

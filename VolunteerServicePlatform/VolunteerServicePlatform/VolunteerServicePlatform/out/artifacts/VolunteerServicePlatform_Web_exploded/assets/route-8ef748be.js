@@ -1,0 +1,1 @@
+const s="home",a="activity-pages",t="notice-page",E="news-page",e="center-page",c="activity-detail",n="notice-detail",o="news-detail",A="login-page",I="register-page";export{a as A,e as C,s as H,A as L,t as N,I as R,E as a,o as b,c,n as d};

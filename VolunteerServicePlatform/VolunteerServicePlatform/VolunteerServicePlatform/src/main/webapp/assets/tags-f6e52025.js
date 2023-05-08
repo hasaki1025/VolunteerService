@@ -1,0 +1,1 @@
+import{d as e}from "./pinia-251ef24e.js";import{d as r}from "./index-fe68f829.js";const i=e("tags",()=>{const s=r([]);return{tags:s,setTagList:(...t)=>{s.splice(0,s.length,...t)}}},{persist:{enabled:!0,strategies:[{key:"tags",storage:sessionStorage}]}});export{i as u};

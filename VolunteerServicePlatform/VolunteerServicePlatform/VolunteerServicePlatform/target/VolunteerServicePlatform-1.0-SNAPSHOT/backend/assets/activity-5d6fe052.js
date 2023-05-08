@@ -1,0 +1,1 @@
+import{d as e}from "./pinia-251ef24e.js";import{b as s}from "./index-fe68f829.js";const c=e("activity",()=>{const t=s();return{waitEditActivity:t,setWaitEditActivity: i=>{t.value=i}}},{persist:{enabled:!0,strategies:[{key:"activity-change",storage:sessionStorage}]}});export{c as u};

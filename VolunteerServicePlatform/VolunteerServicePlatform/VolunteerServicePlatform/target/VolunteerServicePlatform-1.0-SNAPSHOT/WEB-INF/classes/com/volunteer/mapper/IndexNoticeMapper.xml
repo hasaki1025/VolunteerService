@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.IndexNoticeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.volunteer.pojo.po.IndexNotice">
+        <id column="index_notice_id" property="indexNoticeId" />
+        <result column="index_notice_title" property="indexNoticeTitle" />
+        <result column="index_notice_img" property="indexNoticeImg" />
+        <result column="index_notice_time" property="indexNoticeTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        index_notice_id, index_notice_title, index_notice_img, index_notice_time
+    </sql>
+
+</mapper>

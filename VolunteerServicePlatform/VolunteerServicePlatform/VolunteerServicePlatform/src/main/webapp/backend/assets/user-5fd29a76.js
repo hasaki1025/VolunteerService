@@ -1,0 +1,1 @@
+import{d as o}from "./pinia-251ef24e.js";import{b as t}from "./index-fe68f829.js";const n=o("user",()=>{const e=t("manager");return{role:e,setRole: r=>{e.value=r}}},{persist:{enabled:!0,strategies:[{key:"role",storage:localStorage}]}});export{n as u};

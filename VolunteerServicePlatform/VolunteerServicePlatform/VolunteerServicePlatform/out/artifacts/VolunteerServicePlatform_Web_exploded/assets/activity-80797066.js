@@ -1,0 +1,1 @@
+import{d as o}from "./pinia-753b0366.js";import{I as i}from "./_plugin-vue_export-helper-db55c57b.js";const c=o("activity",()=>{const t=i();return{nextLookActivity:t,setNextLookActivity: e=>{t.value=e}}},{persist:{enabled:!0,strategies:[{key:"activity",storage:sessionStorage}]}});export{c as u};

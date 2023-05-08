@@ -1,0 +1,1 @@
+import{d as o}from "./pinia-753b0366.js";import{I as s}from "./_plugin-vue_export-helper-db55c57b.js";const c=o("notice",()=>{const e=s();return{nextLookNotice:e,setNextLookNotice: t=>{e.value=t}}},{persist:{enabled:!0,strategies:[{key:"notices",storage:sessionStorage}]}});export{c as u};

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.ServiceJoinListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.volunteer.pojo.po.ServiceJoinList">
+        <id column="service_join_list_id" property="serviceJoinListId" />
+        <result column="activity_code" property="activityCode" />
+        <result column="user_id" property="userId" />
+        <result column="service_time" property="serviceTime" />
+        <result column="telephone" property="telephone" />
+        <result column="register_time" property="registerTime" />
+        <result column="is_exam" property="isExam" />
+        <result column="is_sign" property="isSign" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        service_join_list_id, activity_code, user_id, service_time, telephone, register_time, is_exam, is_sign
+    </sql>
+
+</mapper>

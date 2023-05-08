@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.volunteer.mapper.MessageBoardAdminMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.volunteer.pojo.po.MessageBoardAdmin">
+        <id column="message_board_id" property="messageBoardId" />
+        <result column="message_board_content" property="messageBoardContent" />
+        <result column="admin_id" property="adminId" />
+        <result column="time" property="time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        message_board_id, message_board_content, admin_id, time
+    </sql>
+
+</mapper>

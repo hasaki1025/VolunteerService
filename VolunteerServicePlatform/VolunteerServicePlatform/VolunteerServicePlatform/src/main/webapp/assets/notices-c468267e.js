@@ -1,0 +1,1 @@
+import{d as s}from "./pinia-fc5ecdb0.js";import{b as o}from "./index-4cca8065.js";const c=s("notices",()=>{const t=o();return{waitEditNotice:t,setWaitEditNotice: e=>{t.value=e}}},{persist:{enabled:!0,strategies:[{key:"notices-change",storage:sessionStorage}]}});export{c as u};
